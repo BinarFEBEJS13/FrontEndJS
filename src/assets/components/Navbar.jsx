@@ -22,10 +22,15 @@ export const Navbar = () => {
   const handleActiveItem = (item) => {
     setActiveItem(item);
 
-    if (item === "beranda") {
+    if (item === "notifikasi") {
+      navigate("/");
+    } else if (item === "akun") {
+      navigate("/akun");
+    } else if (item === "beranda") {
       navigate("/beranda");
     } else if (item === "kelas") {
       navigate("/beranda/kelassaya");
+
     }
   };
 
@@ -34,6 +39,10 @@ export const Navbar = () => {
     const path = location.pathname;
 
     // Mengatur activeItem sesuai dengan path
+    if (path === "/") {
+      setActiveItem("notifikasi");
+    } else if (path === "/akun") {
+      setActiveItem("akun");
     if (path === "/beranda") {
       setActiveItem("beranda");
     } else if (path === "/beranda/kelassaya") {
@@ -83,7 +92,6 @@ export const Navbar = () => {
                       </div>
                     ) : (
                       <img src={list} alt="" className="" />
-                    )}
                   </div>
                   <div className="cursor-pointer" onClick={() => handleActiveItem("notifikasi")}>
                     {activeItem === "notifikasi" ? (
