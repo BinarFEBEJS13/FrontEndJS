@@ -11,3 +11,11 @@
     font-family: Poppins;
   }
 }
+
+td{
+  padding: 12px 20px;
+}
+
+th{
+  padding: 9px 20px;
+}
