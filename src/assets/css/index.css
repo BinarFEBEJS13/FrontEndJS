@@ -10,4 +10,10 @@
   html {
     font-family: Poppins;
   }
+  .card {
+    @apply
+        bg-white text-gray-700
+        w-full min-h-[8.5rem]
+        shadow-lg shadow-gray-200 rounded-md overflow-hidden
+  }
 }
