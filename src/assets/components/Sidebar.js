@@ -6,7 +6,7 @@ export const Sidebar = ({ setActiveMenu }) => {
 
   const handleMenuClick = (menu) => {
     setActiveMenu(menu);
-    setActiveButton(menu);
+    setActiveButton(menu)
   };
 
   return (
