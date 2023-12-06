@@ -10,8 +10,8 @@ import { Pembayaran } from '../assets/components/Pembayaran';
 import { UbahPassword } from '../assets/components/UbahPassword';
 import { Link } from 'react-router-dom';
 
-export const AkunPassword = () => {
-  const [Akun, setAkun] = useState("changepass")
+export const AkunProfile = () => {
+  const [Akun, setAkun] = useState("profile")
 
   const handleAccount = (item) => {
     setAkun(item);
@@ -95,18 +95,18 @@ export const AkunPassword = () => {
                     </div>
                     </div>
                     {/* Kanan */}
-                      {Akun === "profile" ? 
-                          <div className='hidden sm:flex'>
-                            <Profile></Profile>
-                          </div>
-                      :''}
                       <Link to="/akun">
                         <div className="flex sm:hidden absolute mx-auto w-[90%] mt-5 left-8 cursor-pointer">
                           <img className="flex justify-start" src={arrow} alt=""></img>
                         </div>
                       </Link>
-                      {Akun === "changepass" ? 
+                      {Akun === "profile" ? 
                           <div className='flex'>
+                            <Profile></Profile>
+                          </div>
+                      :''}
+                      {Akun === "changepass" ? 
+                          <div className='hidden sm:flex'>
                             <UbahPassword></UbahPassword>
                           </div>
                       :''}

@@ -1,162 +1,125 @@
 import React, { useState } from 'react'
-import { Navbar } from '../assets/components/Navbar'
 import pencil from '../assets/img/pencil.png'
 import setting from '../assets/img/setting.png'
 import cart from '../assets/img/cart.png'
 import logout from "../assets/img/logout.png";
-import imagepayment from '../assets/img/image_payment.png'
-
-// svg
-import star from '../assets/svg/star.svg'
-import clock from "../assets/svg/clock.svg";
-import book from "../assets/svg/book.svg";
-import badge from "../assets/svg/badge.svg";
-import diamond from "../assets/svg/diamond.svg";
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import arrow from "../assets/svg/arrow-left-black.svg";
+import { Navbar } from '../assets/components/Navbar';
+import { Profile } from '../assets/components/Profile';
+import { Pembayaran } from '../assets/components/Pembayaran';
+import { UbahPassword } from '../assets/components/UbahPassword';
+import { Link } from 'react-router-dom';
 
 export const AkunPembayaran = () => {
+  const [Akun, setAkun] = useState("transaction")
+
+  const handleAccount = (item) => {
+    setAkun(item);
+  };
+
   return (
-    <div className="flex flex-col w-full h-screen">
-      {Navbar()}
-      <div className="flex justify-start space-x-2 px-[270px] mt-5">
-        <div className="text-[#6148FF]">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-        </svg>
-        </div>
-        <p className="text-[#6148FF] font-bold">Kembali ke Beranda</p>
+    <div className="flex flex-col w-full h-screen bg-blue-100 sm:bg-white">
+      <div className="hidden sm:flex">
+        <Navbar></Navbar>
       </div>
-      <div className="flex px-[300px] mt-8">
-        <div className="relative flex flex-col bg-white border-[1.5px] border-biru-0 w-full h-[550px] bottom-5 rounded-xl z-0">
-            <div className="flex w-full h-[8%] justify-center items-center rounded-tl-xl rounded-tr-xl bg-biru-0 text-white font-semibold tracking-[1px] z-10">Akun</div>
-            <div className="flex w-full justify-around">
-                <div className='flex flex-col gap-3 ml-4 mt-4 w-[18rem]'>
-                    <div className='flex items-center space-x-3 '>
-                        <img className='w-5 h-5' src={pencil} alt=''></img>
-                        <p className='text-[12px] font-semibold'>Profil Saya</p>
-                    </div>
-                    <hr></hr>
-                    <div className='flex items-center space-x-3 '>
-                        <img className='w-5 h-5' src={setting} alt=''></img>
-                        <p className='text-[12px] font-semibold'>Ubah Password</p>
-                    </div>
-                    <hr></hr>
-                    <div className='flex items-center space-x-3 '>
-                        <img className='w-5 h-5' src={cart} alt=''></img>
-                        <p className='font-bold text-[#6148FF] text-[15px]'>Riwayat Pembayaran</p>
-                    </div>
-                    <hr></hr>
-                    <div className='flex items-center space-x-3 '>
-                        <img className='w-5 h-5' src={logout} alt=''></img>
-                        <p className='text-[12px] font-semibold'>Keluar</p>
-                    </div>
-                    <hr></hr>
-                    <p className='text-center text-[12px] text-gray-400 mt-4'>Version 1.1.0</p>
-                </div>
-                {/* Kanan */}
-                <div className='flex flex-col  ml-4 mt-4 w-[18rem] px-5'>
-                    <h2 className='text-center font-extrabold'>Riwayat Pembayaran</h2>
-                    <div className='card mt-3 gap-2'>
-                        <img src={imagepayment} alt=''></img>
-                        <div className='flex flex-col gap-[2px] ml-2 mt-1'>
-                            <div className='flex space-x-8 text-[10px] font-bold'>
-                                <p>UI/UX Design</p>
-                                <div className='flex items-center'>
-                                    <img src={star} alt=''></img>
-                                    <p>4.7</p> 
-                                </div>                
-                            </div>
-                            <p className='text-[10px] font-bold'>Belajar Web Designer dengan Figma</p>
-                            <p className='text-[7px]'>by Angela Doe</p>
-                            <div className='flex text-[7px] gap-5 font-bold'>
-                                <div className='flex space-x-1'>
-                                    <img className='w-2.5 h-2.5' src={badge} alt=''></img>
-                                    <p className='text-[#6148FF]'>Intermediate Level</p>
+      <div className="hidden sm:flex justify-start sm:justify-center ">
+        <div className="flex justify-start w-[55%] px-0 mt-5">
+          <div className="flex space-x-2">
+            <div className="text-[#6148FF]">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            </div>
+            <p className="text-[#6148FF] font-bold">Kembali ke Beranda</p>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col sm:flex-row sm:justify-center">
+      <div className="flex px-0 sm:w-[50%] mt-8">
+        <div className="relative flex flex-col bg-transparent sm:bg-white sm:border-[1.5px] sm:border-[#6148FF] w-full h-[550px] bottom-5 rounded-xl z-0">
+            <div className="hidden sm:flex w-full h-[8%] justify-center items-center rounded-tl-xl rounded-tr-xl bg-[#6148FF] text-white font-semibold tracking-[1px] z-10">Akun</div>
+            <div className="hidden sm:flex justify-center">
+              <h1 className="flex w-[90%] sm:hidden text-[1.5rem] font-extrabold">Akun</h1>
+            </div>
+            <div className="flex w-full justify-center sm:gap-4 mt-2 sm:mt-0">
+                <div className='hidden sm:flex flex-row justify-center sm:justify-start w-[90%] sm:w-[18rem] bg-white sm:bg-transparent shadow-lg sm:shadow-none rounded-xl'>
+                    <div className='hidden sm:flex flex-col justify-start w-[90%] gap-3 sm:ml-4 mt-4 sm:w-[18rem]'>
+                        <div onClick={() => handleAccount("profile")} className='flex items-center space-x-3 cursor-pointer'>
+                            {Akun === "profile" ? (
+                                <div className='flex items-center space-x-3'>
+                                    <img className='w-7 h-7 sm:w-5 sm:h-5' src={pencil} alt=''></img>
+                                    <p className='font-bold text-[#6148FF] text-[15px]'>Profil Saya</p>
                                 </div>
-                                 <div className='flex space-x-1'>
-                                    <img className='w-2.5 h-2.5' src={book} alt=''></img>
-                                    <p>10 Modul</p>
+                            ) : (
+                                <div className='flex items-center space-x-3'>
+                                    <img className='w-7 h-7 sm:w-5 sm:h-5' src={pencil} alt=''></img>
+                                    <p className='text-[12px] font-semibold'>Profil Saya</p>
                                 </div>
-                                 <div className='flex space-x-1'>
-                                    <img className='w-2.5 h-2.5' src={clock} alt=''></img>
-                                    <p>120 Menit</p>
-                                </div>
-                            </div>
-                            <div className='flex px-3 py-3 bg-merah-0 text-white mt-1'>
-                                <img className='w-2 h-2' src={diamond} alt=''></img>
-                                <p className='text-[8px]'>Waiting for Payment</p>
-                            </div>
+                            )}                      
                         </div>
-                    </div>
-                    <div className='card mt-3 gap-2'>
-                        <img src={imagepayment} alt=''></img>
-                        <div className='flex flex-col gap-[2px] ml-2 mt-1'>
-                            <div className='flex space-x-8 text-[10px] font-bold'>
-                                <p>UI/UX Design</p>
-                                <div className='flex items-center'>
-                                    <img src={star} alt=''></img>
-                                    <p>4.8</p> 
-                                </div>                
-                            </div>
-                            <p className='text-[10px] font-bold'>Membuat Wireframe Hingga ke Visual Design</p>
-                            <p className='text-[7px]'>by Angela Doe</p>
-                            <div className='flex text-[7px] gap-5 font-bold'>
-                                <div className='flex space-x-1'>
-                                    <img className='w-2.5 h-2.5' src={badge} alt=''></img>
-                                    <p className='text-[#6148FF]'>Intermediate Level</p>
+                        <hr className='border-[1px]'></hr>
+                        <div onClick={() => handleAccount("changepass")} className='flex items-center space-x-3 cursor-pointer'>
+                            {Akun === "changepass" ? (
+                                <div className='flex items-center space-x-3'>
+                                    <img className='w-7 h-7 sm:w-5 sm:h-5' src={setting} alt=''></img>
+                                    <p className='font-bold text-[#6148FF] text-[15px]'>Ubah Password</p>
                                 </div>
-                                 <div className='flex space-x-1'>
-                                    <img className='w-2.5 h-2.5' src={book} alt=''></img>
-                                    <p>5 Modul</p>
+                            ) : (
+                                <div className='flex items-center space-x-3'>
+                                    <img className='w-7 h-7 sm:w-5 sm:h-5' src={setting} alt=''></img>
+                                    <p className='text-[12px] font-semibold'>Ubah Password</p>
                                 </div>
-                                 <div className='flex space-x-1'>
-                                    <img className='w-2.5 h-2.5' src={clock} alt=''></img>
-                                    <p>60 Menit</p>
-                                </div>
-                            </div>
-                            <div className='flex justify-center space-x-1 rounded-lg items-center w-[3rem] h-3 bg-hijau-0 text-white mt-1'>
-                                <img className='w-2 h-2' src={diamond} alt=''></img>
-                                <p className='text-[8px]'>Paid</p>
-                            </div>
+                            )}   
                         </div>
-                    </div>
-                    <div className='card mt-3 gap-2'>
-                        <img src={imagepayment} alt=''></img>
-                        <div className='flex flex-col gap-[2px] ml-2 mt-1'>
-                            <div className='flex space-x-8 text-[10px] font-bold'>
-                                <p>UI/UX Design</p>
-                                <div className='flex items-center'>
-                                    <img src={star} alt=''></img>
-                                    <p>4.4</p> 
-                                </div>                
-                            </div>
-                            <p className='text-[10px] font-bold'>Pengenalan tentang Design System</p>
-                            <p className='text-[7px]'>by Angela Doe</p>
-                            <div className='flex text-[7px] gap-5 font-bold'>
-                                <div className='flex space-x-1'>
-                                    <img className='w-2.5 h-2.5' src={badge} alt=''></img>
-                                    <p className='text-[#6148FF]'>Advanced Level</p>
+                        <hr className='border-[1px]'></hr>
+                        <div onClick={() => handleAccount("transaction")} className='flex items-center space-x-3 cursor-pointer'>
+                            {Akun === "transaction" ? (
+                                <div className='flex items-center space-x-3'>
+                                    <img className='w-7 h-7 sm:w-5 sm:h-5' src={cart} alt=''></img>
+                                    <p className='font-bold text-[#6148FF] text-[15px]'>Riwayat Pembayaran</p>
                                 </div>
-                                 <div className='flex space-x-1'>
-                                    <img className='w-2.5 h-2.5' src={book} alt=''></img>
-                                    <p>10 Modul</p>
+                            ) : (
+                                <div className='flex items-center space-x-3'>
+                                    <img className='w-7 h-7 sm:w-5 sm:h-5' src={cart} alt=''></img>
+                                    <p className='text-[12px] font-semibold'>Riwayat Pembayaran</p>
                                 </div>
-                                 <div className='flex space-x-1'>
-                                    <img className='w-2.5 h-2.5' src={clock} alt=''></img>
-                                    <p>120 Menit</p>
-                                </div>
-                            </div>
-                            <div className='flex justify-center space-x-1 rounded-lg items-center w-[3rem] h-3 bg-hijau-0 text-white mt-1'>
-                                <img className='w-2 h-2' src={diamond} alt=''></img>
-                                <p className='text-[8px]'>Paid</p>
-                            </div>
+                            )}                      
                         </div>
+                        <hr className='border-[1px]'></hr>
+                        <div className='flex items-center space-x-3 '>
+                            <img className='w-7 h-7 sm:w-5 sm:h-5' src={logout} alt=''></img>
+                            <p className='text-[12px] font-semibold'>Keluar</p>
+                        </div>
+                        <hr className='border-[1px]'></hr>
+                        <p className='text-center text-[12px] text-gray-400 my-4 sm:mt-4'>Version 1.1.0</p>
                     </div>
-                </div>
-                {/* Kanan */}
+                    </div>
+                    {/* Kanan */}
+                      {Akun === "profile" ? 
+                          <div className='hidden sm:flex'>
+                            <Profile></Profile>
+                          </div>
+                      :''}
+                      {Akun === "changepass" ? 
+                          <div className='hidden sm:flex'>
+                            <UbahPassword></UbahPassword>
+                          </div>
+                      :''}
+                       <Link to="/akun">
+                        <div className="flex sm:hidden absolute mx-auto w-[90%] mt-5 left-8 cursor-pointer">
+                          <img className="flex justify-start" src={arrow} alt=""></img>
+                        </div>
+                      </Link>
+                      {Akun === "transaction" ? 
+                          <div className='flex'> 
+                            <Pembayaran></Pembayaran>
+                          </div>
+                      :''}
+                    {/* Kanan */}
             </div>
         </div>
       </div>
+      </div>
     </div>
   )
-}
+};

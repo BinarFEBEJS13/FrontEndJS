@@ -4,6 +4,7 @@ import logo from "../img/logo-navbar.png";
 import searchnav from "../svg/search.svg";
 import login from "../svg/log-in.svg";
 // import svg navbar
+import beranda from "../svg/beranda.svg";
 import list from "../svg/list.svg";
 import bell from "../svg/bell-putih.svg";
 import user from "../svg/user.svg";
@@ -57,21 +58,21 @@ export const Navbar = () => {
             <div className="flex items-center w-1/3 justify-end">
               {/* Apbila user belum login */}
               {dataToggle ? (
-                {/* <button className="flex gap-2 items-center text-white">
+                <button className="flex gap-2 items-center text-white">
                   <img src={login} alt="" />
                   Masuk
-                </button> */}
+                </button>
               ) : (
                 // Kalo user sudah login
                 <div className="flex gap-4 items-center">
-                  {/* <div className="cursor-pointer" onClick={() => handleActiveItem("beranda")}>
+                  <div className="cursor-pointer" onClick={() => handleActiveItem("beranda")}>
                     {activeItem === "beranda" ? (
                       <div className="flex text-white gap-2 bg-gradientbutton px-4 py-1 rounded-md shadow-sm-button">
-                        <img src='' alt="" />
+                        <img src={beranda} alt="" />
                         Beranda
                       </div>
                     ) : (
-                      <img src='' alt="" className="" />
+                      <img src={beranda} alt="" className="" />
                     )}
                   </div>
                   <div className="cursor-pointer" onClick={() => handleActiveItem("kelas")}>
@@ -83,7 +84,7 @@ export const Navbar = () => {
                     ) : (
                       <img src={list} alt="" className="" />
                     )}
-                  </div> */}
+                  </div>
                   <div className="cursor-pointer" onClick={() => handleActiveItem("notifikasi")}>
                     {activeItem === "notifikasi" ? (
                       <div className="flex text-white gap-2 bg-gradientbutton px-4 py-1 rounded-md shadow-sm-button">
