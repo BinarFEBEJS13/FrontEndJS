@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-// import Eye from "../../assets/svg/eye.svg"
 import Logo from "../../assets/img/Login Image.png";
 import { FiEye } from "react-icons/fi";
 import { FiEyeOff } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,13 +14,13 @@ const Login = () => {
   return (
     <>
       <div className="flex items-center">
-        <div className="w-[53%] h-screen flex items-center justify-center">
+        <div className="w-[53%] h-screen hidden md:hidden lg:block">
           <img className="h-full w-full" src={Logo} alt="" />
         </div>
 
         <div className="w-full h-screen flex flex-col items-center justify-center">
           <h1 className="text-[#6148FF] font-bold text-2xl">Login</h1>
-          <div className="flex flex-col w-1/2 mt-10 gap-4">
+          <div className="flex flex-col w-4/5 px-[1rem] md:w-3/4 lg:w-2/3 mt-10 gap-4">
             <div className="flex flex-col">
               <label htmlFor="">ID Admin</label>
               <input
@@ -54,7 +54,9 @@ const Login = () => {
               )}
             </div>
             <button className="mt-3 text-white px-3 py-4 bg-[#6148FF] rounded-2xl">
+              <Link to="/admin/dashboard">
               Masuk
+              </Link>
             </button>
           </div>
         </div>
