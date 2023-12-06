@@ -8,7 +8,7 @@ export const RouterList = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/admin/login" element={<Login/>}></Route>
+        <Route path="/" element={<Login/>}></Route>
         <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
         <Route path="/admin/tabledashboard" element={<TableDashboard/>}></Route>
       </Routes>
