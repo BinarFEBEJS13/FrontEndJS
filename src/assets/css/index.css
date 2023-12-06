@@ -10,18 +10,18 @@
   html {
     font-family: Poppins;
   }
-  .card {
-    @apply
-        bg-white text-gray-700
-        w-full min-h-[8.5rem]
-        shadow-lg shadow-gray-200 rounded-md overflow-hidden
-  }
 }
 
-td{
+.card {
+  @apply bg-white text-gray-700
+        w-full min-h-[8.5rem]
+        shadow-lg shadow-gray-200 rounded-md overflow-hidden;
+}
+
+td {
   padding: 12px 20px;
 }
 
-th{
+th {
   padding: 9px 20px;
 }

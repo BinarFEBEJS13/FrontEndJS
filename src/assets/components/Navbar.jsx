@@ -30,7 +30,6 @@ export const Navbar = () => {
       navigate("/beranda");
     } else if (item === "kelas") {
       navigate("/beranda/kelassaya");
-
     }
   };
 
@@ -43,10 +42,11 @@ export const Navbar = () => {
       setActiveItem("notifikasi");
     } else if (path === "/akun") {
       setActiveItem("akun");
-    if (path === "/beranda") {
-      setActiveItem("beranda");
-    } else if (path === "/beranda/kelassaya") {
-      setActiveItem("kelas");
+      if (path === "/beranda") {
+        setActiveItem("beranda");
+      } else if (path === "/beranda/kelassaya") {
+        setActiveItem("kelas");
+      }
     }
   }, [location.pathname]);
 
@@ -92,6 +92,7 @@ export const Navbar = () => {
                       </div>
                     ) : (
                       <img src={list} alt="" className="" />
+                    )}
                   </div>
                   <div className="cursor-pointer" onClick={() => handleActiveItem("notifikasi")}>
                     {activeItem === "notifikasi" ? (
