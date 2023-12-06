@@ -26,10 +26,18 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
+import { useGETDataCourses } from "../services/get-data-courses";
+import { useGETDataCategories } from "../services/get-data-categories";
 
 export const Beranda = () => {
   const navigate = useNavigate();
   const [activePopular, setActivePopular] = useState("all");
+
+  const { data: dataCourse } = useGETDataCourses();
+  const { data: dataCategories } = useGETDataCategories();
+
+  console.log(dataCourse?.data?.courses, "ini course");
+  console.log(dataCategories, "ini categories");
 
   const handleActivePopular = (item) => {
     setActivePopular(item);
