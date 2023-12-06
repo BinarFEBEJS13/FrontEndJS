@@ -12,22 +12,29 @@ import mastercard from "../assets/img/mastercard.png";
 import visa from "../assets/img/visa.png";
 import american from "../assets/img/american.png";
 import paypal from "../assets/img/paypal.png";
+import { useNavigate } from "react-router-dom";
 
 export const Pembayaran = () => {
+  const navigate = useNavigate();
   const [pembayaran, setPembayaran] = useState("");
 
   const handleBayarKelas = (item) => {
     setPembayaran(pembayaran === item ? "" : item);
+  };
+
+  const handleGoBack = () => {
+    // untuk kembali ke halaman sebelumnya
+    navigate(-1);
   };
   return (
     <>
       <div className="overflow-x-hidden ">
         <Navbar />
         {/* Button arrow kelas lainnnya */}
-        <div className="w-screen sm:px-8 pt-8">
+        <div className="w-screen px-6 sm:px-12 pt-4 sm:pt-8">
           <div className="container mx-auto">
             <div className="">
-              <button className="flex gap-2 font-semibold items-center">
+              <button onClick={handleGoBack} className="flex gap-2 font-semibold items-center">
                 <img src={arrow} alt="" />
                 Kembali
               </button>
@@ -35,33 +42,33 @@ export const Pembayaran = () => {
           </div>
         </div>
         {/* Detail kelas */}
-        <div className="w-screen sm:px-8 py-8">
+        <div className="w-screen px-6 sm:px-12 py-4 sm:py-8">
           <div className="container mx-auto">
             <div className="flex flex-col gap-4">
-              <div className="flex gap-8">
-                {/* Sebelah Kiri */}
-                <div className="w-4/6 xl:w-8/12 flex flex-col gap-4">
+              <div className="flex flex-col sm:flex sm:flex-row gap-4 sm:gap-8">
+                {/* section Bank & Credit Card*/}
+                <div className="w-full sm:w-4/6 xl:w-8/12 flex flex-col gap-4">
                   {/* Bank Transfer */}
                   <div className="border rounded-md flex flex-col gap-4">
-                    <div onClick={() => handleBayarKelas("bank")} className="flex text-white bg-black justify-between px-4 py-2 rounded-md cursor-pointer">
+                    <div onClick={() => handleBayarKelas("bank")} className="flex text-white bg-black justify-between px-4 py-2 rounded-t-md cursor-pointer">
                       <p>Bank Transfer</p>
                       <img src={drop} alt="" className={`${pembayaran === "bank" ? "rotate-180" : "rotate-0"}`} />
                     </div>
                     {pembayaran === "bank" ? (
-                      <div className="flex flex-col gap-8 justify-center items-center p-4 pb-8">
+                      <div className="flex flex-col gap-4 sm:gap-8 justify-center items-center p-4 pb-4 sm:pb-8 ">
                         {/* Png Credit Card */}
-                        <div className="flex gap-2">
+                        <div className="flex gap-2 ">
                           <img src={mastercard} alt="" className="w-10" />
                           <img src={visa} alt="" className="w-10" />
                           <img src={american} alt="" className="w-10" />
                           <img src={paypal} alt="" className="w-10" />
                         </div>
                         {/* Input Credit Card */}
-                        <div className="flex flex-col gap-4">
+                        <div className="w-full sm:w-auto flex flex-col gap-4 ">
                           <div className="w-full flex flex-col gap-2">
                             <h2 className="font-bold">Card Number</h2>
                             <div>
-                              <input className="w-full" placeholder="4480 0000 0000 0000" />
+                              <input className="w-full" placeholder="4480 0000 0000 0000" type="number" />
                               <div className="w-full h-[0.1rem] bg-slate-300"></div>
                             </div>
                           </div>
@@ -73,17 +80,27 @@ export const Pembayaran = () => {
                             </div>
                           </div>
                           <div className="flex gap-4">
-                            <div className="w-full flex flex-col gap-2">
+                            <div className="w-1/2 sm:w-full flex flex-col gap-2">
                               <h2 className="font-bold">CVV</h2>
                               <div>
-                                <input placeholder="000" />
+                                <input
+                                  placeholder="000"
+                                  type="number"
+                                  className="
+                                w-full"
+                                />
                                 <div className="w-full h-[0.1rem] bg-slate-300"></div>
                               </div>
                             </div>
-                            <div className="w-full flex flex-col gap-2">
+                            <div className="w-1/2 sm:w-full flex flex-col gap-2">
                               <h2 className="font-bold">Expiry date</h2>
                               <div>
-                                <input placeholder="07/24" />
+                                <input
+                                  placeholder="07/24"
+                                  type="number"
+                                  className="
+                                w-full"
+                                />
                                 <div className="w-full h-[0.1rem] bg-slate-300"></div>
                               </div>
                             </div>
@@ -97,12 +114,12 @@ export const Pembayaran = () => {
                   {/* Credit Card */}
                   <div className="border rounded-md flex flex-col gap-4">
                     {/* Button CC dropdown */}
-                    <div onClick={() => handleBayarKelas("credit")} className="flex text-white bg-biru-0 justify-between px-4 py-2 rounded-md cursor-pointer">
+                    <div onClick={() => handleBayarKelas("credit")} className="flex text-white bg-biru-0 justify-between px-4 py-2 rounded-t-md cursor-pointer">
                       <p>Credit Card</p>
                       <img src={drop} alt="" className={`${pembayaran === "credit" ? "rotate-180" : "rotate-0"}`} />
                     </div>
                     {pembayaran === "credit" ? (
-                      <div className="flex flex-col gap-8 justify-center items-center p-4 pb-8">
+                      <div className="flex flex-col gap-4 sm:gap-8 justify-center items-center p-4 pb-4 sm:pb-8">
                         {/* Png Credit Card */}
                         <div className="flex gap-2">
                           <img src={mastercard} alt="" className="w-10" />
@@ -111,11 +128,11 @@ export const Pembayaran = () => {
                           <img src={paypal} alt="" className="w-10" />
                         </div>
                         {/* Input Credit Card */}
-                        <div className="flex flex-col gap-4">
+                        <div className="w-full sm:w-auto flex flex-col gap-4">
                           <div className="w-full flex flex-col gap-2">
                             <h2 className="font-bold">Card Number</h2>
                             <div>
-                              <input className="w-full" placeholder="4480 0000 0000 0000" />
+                              <input className="w-full" placeholder="4480 0000 0000 0000" type="number" />
                               <div className="w-full h-[0.1rem] bg-slate-300"></div>
                             </div>
                           </div>
@@ -127,17 +144,27 @@ export const Pembayaran = () => {
                             </div>
                           </div>
                           <div className="flex gap-4">
-                            <div className="w-full flex flex-col gap-2">
+                            <div className="w-1/2 sm:w-full flex flex-col gap-2">
                               <h2 className="font-bold">CVV</h2>
                               <div>
-                                <input placeholder="000" />
+                                <input
+                                  placeholder="000"
+                                  type="number"
+                                  className="
+                                w-full"
+                                />
                                 <div className="w-full h-[0.1rem] bg-slate-300"></div>
                               </div>
                             </div>
-                            <div className="w-full flex flex-col gap-2">
+                            <div className="w-1/2 sm:w-full flex flex-col gap-2">
                               <h2 className="font-bold">Expiry date</h2>
                               <div>
-                                <input placeholder="07/24" />
+                                <input
+                                  placeholder="07/24"
+                                  type="number"
+                                  className="
+                                w-full"
+                                />
                                 <div className="w-full h-[0.1rem] bg-slate-300"></div>
                               </div>
                             </div>
@@ -149,8 +176,8 @@ export const Pembayaran = () => {
                     )}
                   </div>
                 </div>
-                {/* Sebelah Kanan */}
-                <div className="w-2/6 xl:w-4/12 flex flex-col gap-4 px-8 py-4 border rounded-md shadow-sm-button">
+                {/* Section card class payment */}
+                <div className="w-full sm:w-2/6 xl:w-4/12 flex flex-col gap-4 px-4 sm:px-8 py-4 border rounded-md shadow-sm-button">
                   {/* Judul Header */}
                   <div className="flex justify-center items-center">
                     <h2 className="font-bold text-xl text-center">Pembayaran Kelas</h2>
@@ -165,10 +192,10 @@ export const Pembayaran = () => {
                         </div>
                         <div className="px-4 py-4 flex flex-col gap-2 rounded-2xl">
                           <div className="flex justify-between">
-                            <h6 className="text-ungu-0">Android Development</h6>
+                            <h6 className="text-ungu-0 text-sm">Android Development</h6>
                           </div>
                           <div>
-                            <h2 className="font-bold cursor-pointer">Belajar Web Designer dengan Figma</h2>
+                            <h2 className="font-bold cursor-pointer text-sm sm:text-base">Belajar Web Designer dengan Figma</h2>
                             <span className="opacity-50 text-sm">by Angela Doe</span>
                           </div>
                         </div>

@@ -8,7 +8,7 @@ export const Onboarding = () => {
       <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex justify-center items-center">
         <div className="w-2/3 lg:w-1/3 bg-white relative p-4 rounded-md flex flex-col gap-4">
           {/* Button Close */}
-          <button className=" bg-white hover:bg-biru-0 hover:text-white rounded-full px-2 absolute -top-3 -right-3">X</button>
+          <button className=" bg-white hover:bg-biru-0 hover:text-white rounded-full px-2 absolute top-1 right-1">X</button>
           {/* Header */}
           <div className="flex flex-col gap-4 justify-center items-center">
             <h2 className="text-2xl font-bold">Onboarding...</h2>

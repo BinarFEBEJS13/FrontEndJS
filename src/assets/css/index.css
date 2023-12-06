@@ -11,3 +11,32 @@
     font-family: Poppins;
   }
 }
+
+/* Style Punya Swipper */
+.mySwiper .swiper-button-prev,
+.mySwiper .swiper-button-next {
+  font-size: 1rem !important;
+  width: 1rem;
+  color: white !important;
+  background-color: #73ca5c;
+  padding: 1.5rem;
+  border-radius: 10%;
+}
+
+.mySwiper .swiper-pagination-bullet {
+  background-color: #73ca5c !important;
+}
+
+/* Di dalam file CSS atau di dalam komponen dengan style Filter Mobile JSX */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out;
+}

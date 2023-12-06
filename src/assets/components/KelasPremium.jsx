@@ -14,9 +14,9 @@ export const KelasPremium = () => {
   return (
     <>
       <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex justify-center items-center">
-        <div className=" bg-white relative p-4 rounded-md flex flex-col gap-4">
+        <div className=" bg-white p-4 rounded-md flex flex-col gap-4 fixed sm:relative bottom-0 w-full sm:w-auto max-h-screen overflow-y-auto">
           {/* Button Close */}
-          <button className=" bg-white hover:bg-biru-0 hover:text-white rounded-full px-2 absolute -top-3 -right-3">X</button>
+          <button className=" bg-white hover:bg-biru-0 hover:text-white rounded-full px-2 absolute top-1 right-1">X</button>
           {/* Header */}
           <div className="flex flex-col justify-center items-center">
             <h2 className="font-bold">Selangkah lagi menuju</h2>
